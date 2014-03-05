@@ -38,4 +38,6 @@ class WebAppInitializer extends AbstractDispatcherServletInitializer {
         characterEncodingFilter.setEncoding("UTF-8");
         return [ characterEncodingFilter ] as Filter[]
     }
+
+
 }

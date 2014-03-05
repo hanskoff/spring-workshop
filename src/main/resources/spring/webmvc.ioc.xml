@@ -43,22 +43,35 @@
     </bean>
 -->
 
-    <bean class="org.thymeleaf.spring3.view.ThymeleafViewResolver">
-        <property name="templateEngine" >
-            <bean class="org.thymeleaf.spring3.SpringTemplateEngine">
-                <property name="templateResolver" >
-                    <bean class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
-                        <property name="prefix" value="/WEB-INF/templates/" />
-                        <property name="suffix" value=".html" />
-                        <property name="templateMode" value="HTML5" />
-                        <property name="characterEncoding" value="UTF-8" />
-                    </bean>
-                </property>
-            </bean>
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="viewResolvers">
+            <list>
+                <bean class="org.thymeleaf.spring3.view.ThymeleafViewResolver">
+                    <property name="templateEngine" >
+                        <bean class="org.thymeleaf.spring3.SpringTemplateEngine">
+                            <property name="templateResolver" >
+                                <bean class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+                                    <property name="prefix" value="/WEB-INF/templates/" />
+                                    <property name="suffix" value=".html" />
+                                    <property name="templateMode" value="HTML5" />
+                                    <property name="characterEncoding" value="UTF-8" />
+                                </bean>
+                            </property>
+                        </bean>
+                    </property>
+                    <property name="characterEncoding" value="UTF-8" />
+                    <property name="order" value="1" />
+                </bean>
+            </list>
         </property>
-        <property name="characterEncoding" value="UTF-8" />
-        <property name="order" value="1" />
+        <property name="defaultViews">
+            <list>
+                <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
+            </list>
+        </property>
     </bean>
+
+
 
 
     <!-- **************************************************************** -->
@@ -72,5 +85,6 @@
     <mvc:resources location="/WEB-INF/assets/" mapping="/assets/**" />
 
     <mvc:view-controller path="/error" view-name="error"/>
+    <mvc:view-controller path="/" view-name="index"/>
 
 </beans>

@@ -1,6 +1,7 @@
 package eu.solidcraft.starter.controller;
 
 import com.google.common.collect.ImmutableMap;
+import eu.solidcraft.starter.domain.loan.LoanEntity;
 import eu.solidcraft.starter.domain.some.SomeEntity;
 import eu.solidcraft.starter.domain.some.SomeEntityRepository;
 import eu.solidcraft.starter.infrastructure.security.LoggedUserRepository;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,10 +31,10 @@ class SomeController {
         this.loggedUserRepository = loggedUserRepository;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    String index() {
-        return "redirect:/some/mine";
-    }
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    String index() {
+//        return "redirect:/some/mine";
+//    }
 
     @RequestMapping(value = "/some/mine", method = RequestMethod.GET)
     Map mine() {

@@ -1,0 +1,55 @@
+<div class="container">
+    <h1>Loans</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>username</th>
+                <th>amount</th>
+                <th>interest</th>
+                <th>startdate</th>
+                <th>period</th>
+                <th>extensions</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="entity in items.entities">
+                <td>{{entity.id}}</td>
+                <td>{{entity.username}}</td>
+                <td>{{entity.amount}}</td>
+                <td>{{entity.interest}}</td>
+                <td>{{entity.startDate | date}}</td>
+                <td>{{entity.periodInWeeks}}</td>
+                <td>{{entity.extensions}}</td>
+                <td><button class="btn" ng-click="extend(entity)">extend!</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form role="form">
+        <div class="form-group">
+            <label class="control">id: <input type="text" class="form-control" ng-model="newEntity.id"/></label>
+        </div>
+        <div class="form-group">
+            <label class="control">username: <input type="text" class="form-control" ng-model="newEntity.username"/></label>
+        </div>
+        <div class="form-group">
+            <label class="control">amount: <input type="text" class="form-control" ng-model="newEntity.amount"/></label>
+        </div>
+        <div class="form-group">
+            <label class="control">interest: <input type="text" class="form-control" ng-model="newEntity.interest"/></label>
+        </div>
+        <div class="form-group">
+            <label class="control">startdate: <input type="text" class="form-control" ng-model="newEntity.startDate"/></label>
+        </div>
+        <div class="form-group">
+            <label class="control">period: <input type="text" class="form-control" ng-model="newEntity.periodInWeeks"/></label>
+        </div>
+        <div class="form-group">
+            <label class="control">extensions: <input type="text" class="form-control" ng-model="newEntity.extensions"/></label>
+        </div>
+        <button ng-click="save(newEntity)">zapisz</button>
+    </form>
+</div>
