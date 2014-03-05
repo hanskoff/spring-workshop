@@ -19,5 +19,24 @@
         "username" : "test",
         "someAmount": 30,
         "someDate": "2009-04-12T20:44:55"
+    },
+    {
+        "_class" : "eu.solidcraft.starter.domain.loan.LoanEntity",
+        "id" : 1,
+        "username" : "test",
+        "amount": 1024,
+        "interest": 0.05,
+        "startDate": "2013-04-12T20:44:55",
+        "periodInWeeks": 2
+
+    },
+    {
+        "_class" : "eu.solidcraft.starter.domain.loan.LoanEntity",
+        "id": 2,
+        "username" : "test",
+        "amount": 2048,
+        "interest": 0.04,
+        "startDate": "2013-05-12T20:44:55",
+        "periodInWeeks": 3
     }
 ]
